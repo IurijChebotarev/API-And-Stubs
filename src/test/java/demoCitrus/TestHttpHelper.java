@@ -1,52 +1,45 @@
 package demoCitrus;
 
-import com.consol.citrus.annotations.CitrusResource;
 import com.consol.citrus.annotations.CitrusTest;
 import com.consol.citrus.context.TestContext;
-import com.consol.citrus.dsl.runner.TestRunner;
 import com.consol.citrus.dsl.testng.TestNGCitrusTestRunner;
 import com.consol.citrus.message.MessageType;
-import io.cucumber.java.ru.Пусть;
-import io.cucumber.java.ru.Тогда;
 import org.springframework.http.HttpStatus;
 import org.testng.annotations.Test;
-import pojo.http.RegisterUserResponse;
+import pojo.http.postRegistration.RegisterUserResponse;
+
 
 public class TestHttpHelper extends TestNGCitrusTestRunner {
 
-//  private TestContext context;
-  @CitrusResource
-  private TestRunner runner;
+  private TestContext context;
 
-  @Пусть("Я отправляю запрос на регистрацию с email {string} и паролем {string}")
-  public void postRegister(String email, String pass) {
-//    this.context = citrus.createTestContext();
+  @Test(description = "Проверка корректности регистрации")
+  @CitrusTest
+  public void postRegister() {
+    this.context = citrus.createTestContext();
 
-    runner.http(httpActionBuilder -> httpActionBuilder
+    http(httpActionBuilder -> httpActionBuilder
         .client("httpHelperClient")
         .send()
         .post("register")
         .payload("{\n" +
-            "    \"email\": \"" + email + "\",\n" +
-            "    \"password\": \"" + pass + "\"\n" +
+            "    \"email\":\"eve.holt@reqres.in\",\n" +
+            "    \"password\":\"pistol\" " +
             "}")
     );
-  }
 
-  @Тогда("Я проверяю, что вернулся ответ с id {int} и токеном {string}")
-    public void getRegisterResponse(int id, String token) {
-    runner.http(httpActionBuilder -> httpActionBuilder
+    http(httpActionBuilder -> httpActionBuilder
         .client("httpHelperClient")
         .receive()
         .response(HttpStatus.OK)
         .messageType(MessageType.JSON)
-        .payload(getRegisterResponseJsonData(id, token), "objectMapper"));
+        .payload(getRegisterResponseJsonData(), "objectMapper"));
   }
 
-  public RegisterUserResponse getRegisterResponseJsonData(int id, String token) {
+  public RegisterUserResponse getRegisterResponseJsonData() {
     RegisterUserResponse response = new RegisterUserResponse();
-    response.setId(id);
-    response.setToken(token);
+    response.setId(4);
+    response.setToken("QpwL5tke4Pnpja7X4");
 
     return response;
   }

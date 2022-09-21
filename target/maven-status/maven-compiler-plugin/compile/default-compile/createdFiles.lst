@@ -1,1 +1,16 @@
-enums\IRegistrationData.class
+pojo\http\getAllUsers\GetAllUsersResponse.class
+pojo\xml\com\dataaccess\webservicesserver\NumberToWordsResponse.class
+pojo\http\postRegistration\RegisterUserRequest.class
+pojo\xml\com\dataaccess\webservicesserver\NumberConversion.class
+pojo\xml\com\dataaccess\webservicesserver\NumberToDollarsResponse.class
+pojo\xml\com\dataaccess\webservicesserver\NumberConversionSoapType.class
+pojo\http\getAllCurses\GetAllCursesResponse.class
+pojo\wss\WssError.class
+pojo\http\getAllCurses\GetAllCursesResponseItem.class
+pojo\xml\com\dataaccess\webservicesserver\package-info.class
+pojo\http\postRegistration\RegisterUserResponse.class
+pojo\xml\com\dataaccess\webservicesserver\ObjectFactory.class
+pojo\xml\com\dataaccess\webservicesserver\NumberToDollars.class
+pojo\xml\com\dataaccess\webservicesserver\NumberToWords.class
+pojo\wss\ErrorResponse.class
+pojo\http\getScore\GetScoreResponse.class

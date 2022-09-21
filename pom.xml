@@ -134,7 +134,7 @@
         <version>2.20</version>
         <executions>
           <execution>
-            <id>integration-tests</id>
+            <id>integration-Tests</id>
             <goals>
               <goal>integration-test</goal>
               <goal>verify</goal>

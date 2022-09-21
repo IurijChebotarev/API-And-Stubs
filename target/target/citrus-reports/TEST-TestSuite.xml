@@ -1,3 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestSuite" time="0.0" tests="0" errors="0" skipped="0" failures="0">
+<testsuite name="TestSuite" time="0.0" tests="5" errors="0" skipped="0" failures="0">
+    <testcase name="TestHelperMock.getAllCurses" classname="demoCitrus.TestHelperMock" time="0.0"/>
+    <testcase name="TestHelperMock.getAllUsers" classname="demoCitrus.TestHelperMock" time="0.0"/>
+    <testcase name="TestHelperMock.getScore" classname="demoCitrus.TestHelperMock" time="0.0"/>
+    <testcase name="TestHttpHelper.postRegister" classname="demoCitrus.TestHttpHelper" time="0.0"/>
+    <testcase name="TestSoapHelper.getTestActions" classname="demoCitrus.TestSoapHelper" time="0.0"/>
 </testsuite>
